@@ -45,8 +45,8 @@ func newCustomDomain() *schema.Resource {
 			},
 			"verification_method": {
 				Type:         schema.TypeString,
-				Required:     true,
-				ForceNew:     true,
+				Required:     false,
+				ForceNew:     false,
 				ValidateFunc: validation.StringInSlice([]string{"txt"}, true),
 			},
 			"verification": {
