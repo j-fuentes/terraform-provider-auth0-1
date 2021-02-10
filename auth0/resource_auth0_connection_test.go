@@ -967,6 +967,8 @@ func TestAccConnectionGitHub(t *testing.T) {
 					resource.TestCheckResourceAttr("auth0_connection.github", "strategy", "github"),
 					resource.TestCheckResourceAttr("auth0_connection.github", "options.0.client_id", "client-id"),
 					resource.TestCheckResourceAttr("auth0_connection.github", "options.0.client_secret", "client-secret"),
+					resource.TestCheckResourceAttr("auth0_connection.github", "options.0.email", "true"),
+					resource.TestCheckResourceAttr("auth0_connection.github", "options.0.read_org", "true"),
 					resource.TestCheckResourceAttr("auth0_connection.github", "options.0.scopes.#", "20"),
 					resource.TestCheckResourceAttr("auth0_connection.github", "options.0.scopes.881205744", "email"),
 					resource.TestCheckResourceAttr("auth0_connection.github", "options.0.scopes.4080487570", "profile"),
@@ -1002,6 +1004,8 @@ resource "auth0_connection" "github" {
 	options {
 		client_id = "client-id"
 		client_secret = "client-secret"
+		email = true
+		read_org = true
 		scopes = [ "email", "profile", "read_user", "follow", "public_repo", "repo", "repo_deployment", "repo_status",
 				   "delete_repo", "notifications", "gist", "read_repo_hook", "write_repo_hook", "admin_repo_hook",
 				   "read_org", "admin_org", "read_public_key", "write_public_key", "admin_public_key", "write_org"

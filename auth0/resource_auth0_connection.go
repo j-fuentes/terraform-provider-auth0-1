@@ -573,6 +573,18 @@ var connectionSchema = map[string]*schema.Schema{
 					Optional:    true,
 					Description: "Sign Request Algorithm Digest",
 				},
+
+				// github options
+				"email": {
+					Type:        schema.TypeBool,
+					Optional:    true,
+					Description: "Make the connection retrieve user's email address.",
+				},
+				"read_org": {
+					Type:        schema.TypeBool,
+					Optional:    true,
+					Description: "Make the connection retrieve user's organizations.",
+				},
 			},
 		},
 		Description: "Configuration settings for connection options",

@@ -51,6 +51,8 @@ func flattenConnectionOptionsGitHub(o *management.ConnectionOptionsGitHub) inter
 	return map[string]interface{}{
 		"client_id":                o.GetClientID(),
 		"client_secret":            o.GetClientSecret(),
+		"email":                    o.GetEmail(),
+		"read_org":                 o.GetReadOrg(),
 		"set_user_root_attributes": o.GetSetUserAttributes(),
 		"scopes":                   o.Scopes(),
 	}
@@ -310,6 +312,8 @@ func expandConnectionOptionsGitHub(d ResourceData) *management.ConnectionOptions
 	o := &management.ConnectionOptionsGitHub{
 		ClientID:          String(d, "client_id"),
 		ClientSecret:      String(d, "client_secret"),
+		Email:             Bool(d, "email"),
+		ReadOrg:           Bool(d, "read_org"),
 		SetUserAttributes: String(d, "set_user_root_attributes"),
 	}
 
